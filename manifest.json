@@ -1,11 +1,11 @@
 {
-  "name": "Twitch Unfollow Pro",
+  "name": "Twitch Unfollowr",
   "description": "The most intuitive and powerful Twitch unfollow tool. Bulk unfollow with confidence using our advanced interface with previews, confirmations, and safety features.",
   "version": "1.0.0",
   "author": {
-    "name": "jiroaku",
-    "email": "jiroaku@github.com",
-    "url": "https://github.com/jiroaku"
+    "name": "ecx2f",
+    "email": "ecx2f@github.com",
+    "url": "https://github.com/ecx2f"
   },
   "permissions": ["scripting", "storage"],
   "host_permissions": ["https://*.twitch.tv/*"],
@@ -23,7 +23,7 @@
       "48": "icon.png",
       "128": "icon.png"
     },
-    "default_title": "Twitch Unfollow Pro - Manage your follows safely",
+    "default_title": "unfollowr",
     "default_popup": "popup.html"
   },
   "web_accessible_resources": [

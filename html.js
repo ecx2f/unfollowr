@@ -11,14 +11,14 @@ class InterfaceInjector {
 
     async init() {
         try {
-            console.log('🎯 Interface Injector: Starting...');
+            console.log('Interface Injector: Starting...');
             
             // Wait for page to be ready
             await this.waitForPageReady();
             
             // Check if we're on the correct page
             if (!this.isOnCorrectPage()) {
-                console.log('🎯 Interface Injector: Not on following page, skipping injection');
+                console.log('Interface Injector: Not on following page, skipping injection');
                 return;
             }
             
@@ -28,10 +28,10 @@ class InterfaceInjector {
             // Inject the interface
             await this.injectInterface();
             
-            console.log('✅ Interface Injector: Successfully completed');
+            console.log('Interface Injector: Successfully completed');
             
         } catch (error) {
-            console.error('❌ Interface Injector: Error during initialization:', error);
+            console.error('Interface Injector: Error during initialization:', error);
             this.handleInjectionError(error);
         }
     }
@@ -68,7 +68,7 @@ class InterfaceInjector {
         try {
             // Wait for the main element first
             await this.waitForElement('#following-page-main-content', 15000);
-            console.log('🎯 Found main following page element');
+            console.log('Found main following page element');
 
             // Wait a bit more to ensure other elements load
             await this.wait(2000);
@@ -76,15 +76,15 @@ class InterfaceInjector {
             // Check if channel elements are loaded
             const userCards = document.querySelectorAll('[data-a-target="user-card-modal"]');
             if (userCards.length === 0) {
-                console.log('🎯 Waiting for channels to load...');
+                console.log('Waiting for channels to load...');
                 await this.waitForElement('[data-a-target="user-card-modal"]', 10000);
             }
 
-            console.log('🎯 Twitch elements loaded successfully');
+            console.log('Twitch elements loaded successfully');
             return true;
             
         } catch (error) {
-            console.warn('🎯 Some elements may not have fully loaded:', error.message);
+            console.warn('Some elements may not have fully loaded:', error.message);
             // Continue even if some elements do not load
             return true;
         }
@@ -117,7 +117,7 @@ class InterfaceInjector {
     async injectInterface() {
         // Check if interface is already injected
         if (document.getElementById('followManagerContainer')) {
-            console.log('🎯 Interface already injected, skipping');
+            console.log('Interface already injected, skipping');
             return;
         }
 
@@ -127,7 +127,7 @@ class InterfaceInjector {
             throw new Error('Target element #following-page-main-content not found');
         }
 
-        console.log('🎯 Injecting modern interface...');
+        console.log('Injecting modern interface...');
 
         // The interface will be created by the main script
         // We just need to ensure the main script is loaded
@@ -136,7 +136,7 @@ class InterfaceInjector {
         // Wait for the interface to be created
         await this.waitForInterfaceCreation();
 
-        console.log('🎯 Interface injection completed');
+        console.log('Interface injection completed');
     }
 
     async ensureMainScriptLoaded() {
@@ -179,10 +179,10 @@ class InterfaceInjector {
         this.retryCount++;
         
         if (this.retryCount < this.maxRetries) {
-            console.log(`🎯 Retrying injection (${this.retryCount}/${this.maxRetries})...`);
+            console.log(`Retrying injection (${this.retryCount}/${this.maxRetries})...`);
             setTimeout(() => this.init(), 2000 * this.retryCount);
         } else {
-            console.error('🎯 Max retries reached, giving up');
+            console.error('Max retries reached, giving up');
             this.showErrorNotification(error);
         }
     }
@@ -193,13 +193,13 @@ class InterfaceInjector {
             position: fixed;
             top: 20px;
             right: 20px;
-            background: #ff4757;
-            color: white;
+            background: #27272a;
+            color: #e4e4e7;
             padding: 15px 20px;
             border-radius: 8px;
+            border: 1px solid #3f3f46;
             z-index: 10000;
-            font-family: 'Segoe UI', sans-serif;
-            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.3);
+            font-family: 'Segoe UI', system-ui, sans-serif;
             max-width: 300px;
             cursor: pointer;
         `;
@@ -260,12 +260,12 @@ class PageChangeObserver {
     }
 
     handlePageChange() {
-        console.log('🎯 Page changed, checking if injection is needed...');
+        console.log('Page changed, checking if injection is needed...');
         
         // Small delay to ensure the page has loaded
         setTimeout(() => {
             if (this.isOnCorrectPage() && !document.getElementById('followManagerContainer')) {
-                console.log('🎯 New page detected, initializing interface...');
+                console.log('New page detected, initializing interface...');
                 new InterfaceInjector();
             }
         }, 1000);
@@ -279,7 +279,7 @@ class PageChangeObserver {
 // Initialize everything
 (async () => {
     try {
-        console.log('🚀 Twitch Unfollow Pro: Starting interface injection...');
+        console.log('Twitch Unfollow Pro: Starting interface injection...');
         
         // Initialize the interface injector
         new InterfaceInjector();
@@ -287,9 +287,9 @@ class PageChangeObserver {
         // Initialize the page change observer
         new PageChangeObserver();
         
-        console.log('✅ Twitch Unfollow Pro: Interface injection system ready');
+        console.log('Twitch Unfollow Pro: Interface injection system ready');
         
     } catch (error) {
-        console.error('❌ Twitch Unfollow Pro: Critical error during initialization:', error);
+        console.error('Twitch Unfollow Pro: Critical error during initialization:', error);
     }
 })();

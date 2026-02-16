@@ -75,8 +75,8 @@ class TwitchUnfollowManager {
                 <div class="follow-manager-modal">
                     <!-- Header -->
                     <div class="follow-manager-header">
-                        <button class="close-button" id="closeButton">×</button>
-                        <h1 class="follow-manager-title">🎮 Twitch Unfollow Pro</h1>
+                        <button class="close-button" id="closeButton" aria-label="Close">×</button>
+                        <h1 class="follow-manager-title">unfollowr</h1>
                         <p class="follow-manager-subtitle">Manage your follows safely & efficiently</p>
                     </div>
 
@@ -105,7 +105,7 @@ class TwitchUnfollowManager {
                         <!-- Step 1: Analysis -->
                         <div class="step-content active" id="step1">
                             <div class="analysis-section">
-                                <div class="analysis-icon">🔍</div>
+                                <div class="analysis-icon" aria-hidden="true">—</div>
                                 <h2 class="analysis-title">Analyze Your Follows</h2>
                                 <p class="analysis-description">
                                     We'll scan your Twitch following list to identify all channels you're currently following. 
@@ -131,7 +131,7 @@ class TwitchUnfollowManager {
                                         <div class="channel-buttons">
                                             <button class="channel-button" id="selectAllBtn">Select All</button>
                                             <button class="channel-button" id="deselectAllBtn">Deselect All</button>
-                                            <button class="channel-button move-btn" id="moveSelectedBtn">Move Selected →</button>
+                                            <button class="channel-button move-btn" id="moveSelectedBtn">Move Selected</button>
                                         </div>
                                     </div>
                                     <div class="channel-list" id="allChannelsList">
@@ -161,7 +161,7 @@ class TwitchUnfollowManager {
                         <!-- Step 3: Preview -->
                         <div class="step-content" id="step3">
                             <div class="preview-section">
-                                <div class="preview-icon">👀</div>
+                                <div class="preview-icon" aria-hidden="true">—</div>
                                 <h2 class="preview-title">Preview Actions</h2>
                                 <p class="preview-description">
                                     Review what will happen before we make any changes. 
@@ -192,7 +192,7 @@ class TwitchUnfollowManager {
                         <!-- Step 4: Execution -->
                         <div class="step-content" id="step4">
                             <div class="execution-section">
-                                <div class="execution-icon">⚡</div>
+                                <div class="execution-icon" aria-hidden="true">—</div>
                                 <h2 class="execution-title">Executing Changes</h2>
                                 <p class="execution-description">
                                     We're now processing your unfollow requests. 
@@ -212,9 +212,9 @@ class TwitchUnfollowManager {
 
                     <!-- Footer Actions -->
                     <div class="follow-manager-footer">
-                        <button class="footer-button secondary" id="backButton" style="display: none;">← Back</button>
+                        <button class="footer-button secondary" id="backButton" style="display: none;">Back</button>
                         <button class="footer-button secondary" id="cancelButton" style="display: none;">Cancel</button>
-                        <button class="footer-button primary" id="nextButton" style="display: none;">Continue →</button>
+                        <button class="footer-button primary" id="nextButton" style="display: none;">Continue</button>
                         <button class="footer-button danger" id="confirmButton" style="display: none;">Confirm Unfollow</button>
                         <button class="footer-button success" id="finishButton" style="display: none;">Finish</button>
                     </div>
@@ -223,7 +223,7 @@ class TwitchUnfollowManager {
                 <!-- Confirmation Modal -->
                 <div class="confirmation-modal" id="confirmationModal" style="display: none;">
                     <div class="confirmation-content">
-                        <div class="confirmation-icon">⚠️</div>
+                        <div class="confirmation-icon" aria-hidden="true">!</div>
                         <h3 class="confirmation-title">WARNING: You are about to unfollow <span id="unfollowCount">0</span> channels!</h3>
                         <p class="confirmation-description">
                             This action cannot be undone. Are you absolutely sure you want to continue?

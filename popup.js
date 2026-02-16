@@ -105,23 +105,23 @@ class PopupManager {
                 'analysisHistory'
             ]);
             
-            let statsMessage = '📊 Follow Manager Statistics\n\n';
+            let statsMessage = 'Follow Manager Statistics\n\n';
             
             if (data.totalChannels) {
-                statsMessage += `📺 Total channels analyzed: ${data.totalChannels}\n`;
+                statsMessage += `Total channels analyzed: ${data.totalChannels}\n`;
             }
             
             if (data.unfollowedCount) {
-                statsMessage += `🚫 Channels unfollowed: ${data.unfollowedCount}\n`;
+                statsMessage += `Channels unfollowed: ${data.unfollowedCount}\n`;
             }
             
             if (data.lastAnalysis) {
                 const lastAnalysis = new Date(data.lastAnalysis);
-                statsMessage += `🕒 Last analysis: ${lastAnalysis.toLocaleDateString()}\n`;
+                statsMessage += `Last analysis: ${lastAnalysis.toLocaleDateString()}\n`;
             }
             
             if (data.analysisHistory && data.analysisHistory.length > 0) {
-                statsMessage += `📈 Analysis sessions: ${data.analysisHistory.length}\n`;
+                statsMessage += `Analysis sessions: ${data.analysisHistory.length}\n`;
             }
             
             if (!data.totalChannels && !data.unfollowedCount) {
